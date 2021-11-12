@@ -1,0 +1,22 @@
+.search_form {
+  padding: 5px 10px;
+  border-radius: 20px;
+  font-size: 18px;
+}
+
+.search_button {
+  padding: 5px 10px;
+  width: 100px;
+  border-radius: 20px;
+
+  font-size: 18px;
+  font-weight: 600;
+  background-color: #fff;
+}
+.search {
+  margin-bottom: 50px;
+}
+
+.search_container {
+  text-align: center;
+}

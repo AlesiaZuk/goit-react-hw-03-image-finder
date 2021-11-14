@@ -7,13 +7,11 @@ class Searchbar extends Component {
   };
 
   handleSubmit = e => {
-    e.preventDefault();
-    //  if (this.state.searchQuery.trim() === '') {
-    //    toast.error('Enter a keyword');
-    //    return;
-    //  }
+    const { searchQuery } = this.state;
 
-    this.props.onSubmit(this.state.searchQuery);
+    e.preventDefault();
+
+    this.props.onSubmit(searchQuery);
     this.setState({ searchQuery: '' });
   };
 
@@ -22,6 +20,7 @@ class Searchbar extends Component {
   };
 
   render() {
+    const { searchQuery } = this.state;
     return (
       <>
         <h1>Search images</h1>
@@ -29,10 +28,9 @@ class Searchbar extends Component {
           <label>
             <input
               type="text"
-              value={this.state.searchQuery}
+              value={searchQuery}
               onChange={this.handelChange}
               className={s.search_form}
-              name="query"
               placeholder="Search images..."
               required
             />

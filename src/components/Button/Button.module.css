@@ -1,0 +1,12 @@
+.button {
+  padding: 5px 10px;
+  width: 200px;
+  border-radius: 20px;
+
+  font-size: 18px;
+  background-color: #fff;
+}
+
+.buttonIsHidden {
+  display: none;
+}

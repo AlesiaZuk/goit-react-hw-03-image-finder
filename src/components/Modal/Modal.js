@@ -1,5 +1,6 @@
 import { Component } from 'react';
 import { createPortal } from 'react-dom';
+import PropTypes from 'prop-types';
 
 import s from './Modal.module.css';
 
@@ -29,10 +30,18 @@ class Modal extends Component {
   render() {
     return createPortal(
       <div className={s.modal_backdrop} onClick={this.handleBackdropClick}>
+        <button type="button" onClick={this.props.onClose} className={s.button}>
+          X
+        </button>
         <div className={s.modal_content}>{this.props.children}</div>
       </div>,
       modalRoot,
     );
   }
 }
+
+Modal.propTypes = {
+  onClose: PropTypes.func.isRequired,
+};
+
 export default Modal;

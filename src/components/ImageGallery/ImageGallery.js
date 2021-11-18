@@ -24,7 +24,8 @@ class ImageGallery extends Component {
     status: Status.IDLE,
   };
 
-  componentDidUpdate(prevProps) {
+  componentDidUpdate(prevProps, prevState) {
+    const { page } = this.state;
     const prevName = prevProps.searchQuery;
     const nextName = this.props.searchQuery;
 
@@ -34,17 +35,16 @@ class ImageGallery extends Component {
         page: 2,
         status: Status.PENDING,
       });
-
-      this.fetchGallery(nextName, 1);
+    }
+    if (prevName !== nextName || prevState.page !== page) {
+      this.fetchGallery(nextName, page);
     }
   }
 
   handelClick = () => {
-    const { page } = this.state;
-
     this.pageIncrement();
 
-    this.fetchGallery(this.props.searchQuery, page);
+    // this.fetchGallery(this.props.searchQuery, page);
   };
 
   fetchGallery = (searchQuery, page) => {
